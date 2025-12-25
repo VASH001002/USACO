@@ -1,0 +1,23 @@
+for i in range(10):
+    row = input()
+    for j in range(10):
+        if row[j] == "B":
+            barn_x = i
+            barn_y = j
+        elif row[j] == "L":
+            lake_x = i
+            lake_y = j
+        elif row[j] == "R":
+            rock_x = i
+            rock_y = j
+
+
+num_of_cows = abs(barn_x - lake_x) + abs(barn_y - lake_y) - 1
+
+if (barn_x == lake_x == rock_x and (lake_y < rock_y < barn_y or barn_y < rock_y < lake_y)):
+    num_of_cows += 2
+
+elif (barn_y == lake_y == rock_y and (lake_x < rock_x < barn_x or barn_x < rock_x < lake_x)):
+    num_of_cows += 2
+
+print(num_of_cows)
